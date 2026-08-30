@@ -1,0 +1,16 @@
+@use './helpers/' as *;
+
+body {
+  background-color: var(--color-neutral-900);
+  font-family: 'Monos';
+}
+
+html {
+  scrollbar-width: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

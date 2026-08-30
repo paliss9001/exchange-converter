@@ -1,0 +1,15 @@
+@use '../helpers/' as *;
+
+.current-data {
+  background-color: var(--color-lime-500);
+  @include text-preset-5-medium;
+  color: var(--color-natural-900);
+  border: none;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  padding: rem(12) rem(16);
+  z-index: 10;
+  white-space: nowrap;
+
+}

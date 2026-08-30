@@ -1,0 +1,41 @@
+@use '../helpers/' as *;
+
+.history {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+
+  &__list {
+    display: flex;
+    column-gap: 1rem;
+    
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 1rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    column-gap: 1rem;
+    background-color: var(--color-neutral-700);
+    border: var(--border-main);
+    border-radius: rem(16);
+    padding: rem(12) rem(20);
+    row-gap: 1rem;
+  }
+
+  &__data {
+    color: #fff;
+    @include text-preset-2;
+  }
+
+  &__term {
+    @include text-preset-4;
+
+    color: var(--color-neutral-100);
+  }
+}

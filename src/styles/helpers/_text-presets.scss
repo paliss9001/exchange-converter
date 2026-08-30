@@ -1,0 +1,78 @@
+@use 'functions' as *;
+
+@mixin text-preset-1 {
+  font-size: rem(40);
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: rem(-0.5);
+}
+
+@mixin text-preset-1-tablet {
+  font-size: rem(32);
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: rem(-0.5);
+}
+
+@mixin text-preset-2 {
+  font-size: rem(20);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: rem(-0.5);
+}
+
+@mixin text-preset-2-bold {
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: rem(-0.5);
+}
+
+@mixin text-preset-3 {
+  font-size: rem(16);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: rem(1);
+}
+
+@mixin text-preset-3-medium {
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: rem(1);
+}
+
+@mixin text-preset-3-bold {
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: rem(1);
+}
+
+@mixin text-preset-4 {
+  font-size: rem(14);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: rem(1);
+}
+
+@mixin text-preset-5 {
+  font-size: rem(12);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: rem(0.5);
+}
+
+@mixin text-preset-5-medium {
+  font-size: rem(12);
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: rem(0.5);
+}
+
+@mixin text-preset-6 {
+  font-size: rem(10);
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: rem(0);
+}

@@ -1,0 +1,21 @@
+@use '../helpers/' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: rem(20) rem(24);
+
+  &__info-list {
+    @include text-preset-4;
+
+    display: flex;
+    color: var(--color-neutral-200);
+  }
+
+  &__info-item:not(:last-child) {
+    &::after {
+      content: '·';
+      margin-inline: .5rem;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use '../helpers/' as *;
+
+.tabs {
+  color: #fff;
+  position: relative;
+  
+  
+  &__trigger {
+    @include tile;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-neutral-700);
+    padding: rem(7);
+    border-radius: rem(12);
+    color: #fff;
+  }
+
+  &__menu {
+    background-color: vaR(--color-neutral-700);
+    padding: rem(8);
+    border-radius: 6px;
+    position: absolute;
+    width: 100%;
+    top: calc(100% + .2rem);
+      border: var(--border);
+
+  }
+
+  &__item {
+    padding: rem(4);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,25 @@
+:root {
+  /* Neutral */
+  --color-neutral-900: #0A0A0A; /* cropped — value not visible */
+  --color-neutral-700: #171719; /* rgb(23, 23, 25)   hsl(240, 4%, 9%) */
+  --color-neutral-600: #202022; /* rgb(32, 32, 34)   hsl(240, 3%, 13%) */
+  --color-neutral-500: #2E2E2E; /* rgb(46, 46, 46)   hsl(0, 0%, 18%) */
+  --color-neutral-400: #3D3D3D; /* rgb(61, 61, 61)   hsl(0, 0%, 24%) */
+  --color-neutral-300: #454547; /* rgb(69, 69, 71)   hsl(240, 1%, 27%) */
+  --color-neutral-200: #9D9D9D; /* rgb(157, 157, 157) hsl(0, 0%, 62%) */
+  --color-neutral-100: #C6C6C6; /* rgb(198, 198, 198) hsl(0, 0%, 78%) */
+  --color-neutral-50:  #FFFFFF; /* rgb(255, 255, 255) hsl(0, 0%, 100%) */
+
+  /* Lime */
+  --color-lime-500: #CEF739; /* rgb(206, 247, 57) hsl(71, 92%, 60%) */
+  --color-lime-800: #283300; /* rgb(40, 51, 0)    hsl(73, 100%, 10%) */
+
+  /* Green */
+  --color-green-500: #42EB05; /* rgb(66, 235, 5)  hsl(104, 96%, 47%) */
+
+  /* Red */
+  --color-red-500: #FF4141; /* rgb(255, 65, 65) hsl(0, 100%, 63%) */
+
+  --border: 1px solid var(--color-neutral-200);
+  --border-main: 1px solid var(--color-neutral-500);
+}
