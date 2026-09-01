@@ -5,6 +5,13 @@ body {
   font-family: 'Monos';
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-top: rem(48);
+}
+
 html {
   scrollbar-width: none;
 }
@@ -13,4 +20,24 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.title {
+  @include text-preset-2;
+
+  color: #fff;
+}
+
+.content-bg {
+  background-color: var(--color-neutral-700);
+  border: 1px solid var(--color-neutral-600);
+  padding: rem(20);
+  border-radius: 16px;
+}
+
+.content-card {
+  background-color: var(--color-neutral-600);
+  border: 1px solid var(--color-neutral-500);
+  padding: rem(12) rem(16);
+  border-radius: 10px;
 }

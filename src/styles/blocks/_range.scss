@@ -1,0 +1,29 @@
+@use '../helpers/' as *;
+
+.range {
+
+  &__list {
+    display: flex;
+    background-color: var(--color-neutral-700);
+    border-radius: 8px;
+
+  }
+
+  &__item {
+    padding: rem(12) rem(16);
+    cursor: pointer;
+    margin: .4rem;
+    color: #fff;
+
+    @include mobile {
+      @include text-preset-5;
+      padding: rem(10) rem(12);
+    }
+
+    &.active {
+      background-color: var(--color-neutral-500);
+      border-radius: 6px;
+      // margin-block: .2rem;
+    }
+  }
+}

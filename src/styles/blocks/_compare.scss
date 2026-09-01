@@ -1,0 +1,90 @@
+@use '../helpers/' as *;
+
+.compare {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(16);
+  }
+
+  &__country {
+    border-radius: 50%;
+    @include square(rem(24));
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    column-gap: rem(20);
+    align-items: center;
+  }
+
+  &__currency {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(8);
+  }
+
+  &__name {
+    @include text-preset-5;
+
+    color: var(--color-neutral-200);
+  }
+
+  &__iso {
+    @include text-preset-4;
+
+    color: #fff;
+  }
+
+  &__data {
+    display: flex;
+    column-gap: rem(20);
+    align-items: center;
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(8);
+    align-items: end;
+  }
+
+  &__change {
+    @include text-preset-3;
+
+    color: #fff;
+  }
+
+  &__bitrate {
+    @include text-preset-6;
+
+    color: var(--color-neutral-200);
+  }
+
+  &__favorite {
+    @include square(rem(32));
+    background-color: var(--color-neutral-600);
+    border: 1px solid var(--color-neutral-500);
+    border-radius: 8px;
+    transition-duration: .1s;
+
+    @include hover {
+      background-color: var(--color-neutral-500);
+      border-color: var(--color-neutral-400);
+    }
+
+    &:active {
+      outline: 1px solid var(--color-lime-500);
+    }
+
+    &.active {
+      border-color: var(--color-lime-500);
+    }
+  }
+}

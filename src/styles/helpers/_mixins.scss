@@ -88,3 +88,10 @@
     border: var(--border-main);
     border-radius: rem(16);
 }
+
+@mixin wrapper-tile {
+    padding:  rem(20);
+    border-radius: rem(16);
+    background-color: var(--color-neutral-700);
+    border: var(--border-main);
+}

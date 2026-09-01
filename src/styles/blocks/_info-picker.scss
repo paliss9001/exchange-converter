@@ -1,0 +1,33 @@
+@use '../helpers/' as *;
+
+.info-picker {
+  position: relative;
+
+  &__trigger {
+    @include tile;
+    width: 100%;
+    padding: rem(10) rem(12);
+    color: #fff;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: space-between;
+  }
+
+  &__list {
+    background-color: var(--color-neutral-700);
+    padding: rem(8);
+    border: var(--border-main);
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    top: calc(100% + .5rem);
+  }
+
+  &__item {
+    padding: rem(10.5) rem(8);
+    color: #fff;
+    cursor: pointer;
+  }
+}

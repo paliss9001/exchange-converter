@@ -6,18 +6,13 @@
 
 @use './blocks/header';
 @use './blocks/ticker';
-@use './blocks/button';
-@use './blocks/icon';
-@use './blocks/current-data';
+@use './blocks/currency-picker';
 @use './blocks/conversion';
-@use './blocks/dropdown';
-@use './blocks/analytics';
+@use './blocks/button';
 @use './blocks/tabs';
 @use './blocks/history';
 @use './blocks/range';
+@use './blocks/info-picker';
 @use './blocks/compare';
-@use './blocks/favorites';
+@use './blocks/default';
 
-.dropdown {
-  color: white;
-}

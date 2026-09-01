@@ -1,0 +1,42 @@
+@use '../helpers/' as *;
+
+.history {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+
+  &__cards-list {
+    display: flex;
+    gap: rem(16);
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    @include tile;
+
+    padding: rem(12) rem(20);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    background-color: var(--color-neutral-700);
+    min-width: rem(150);
+  }
+
+  &__label {
+    @include text-preset-4;
+
+    color: var(--color-neutral-100);
+  }
+  &__value {
+    @include text-preset-2;
+
+    color: #fff;
+  }
+}

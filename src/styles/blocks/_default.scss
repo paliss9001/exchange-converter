@@ -1,0 +1,21 @@
+@use '../helpers/' as *;
+
+.default {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(16);
+  margin-block: 4rem;
+
+  &__title {
+    @include text-preset-2;
+
+    color: var(--color-neutral-100);
+  }
+
+  & p {
+    @include text-preset-4;
+
+    color: var(--color-neutral-200);
+  }
+}
