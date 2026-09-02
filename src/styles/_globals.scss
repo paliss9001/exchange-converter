@@ -35,7 +35,7 @@ input::-webkit-inner-spin-button {
   border-radius: 16px;
 
     @include mobile {
-        padding-inline: .4rem;
+        padding: .4rem;
 
   }
 }
@@ -47,7 +47,7 @@ input::-webkit-inner-spin-button {
   border-radius: 10px;
 
     @include mobile {
-        padding-inline: .4rem;
+        padding: .4rem;
 
   }
 }

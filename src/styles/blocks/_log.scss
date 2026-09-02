@@ -20,6 +20,12 @@
     justify-content: space-between;
     padding: rem(24) rem(12);
     align-items: center;
+
+    @include mobile-s {
+      flex-direction: column;
+      row-gap: .5rem;
+      padding-block: rem(6);
+    }
   }
 
   &__info {
@@ -28,6 +34,11 @@
     align-items: center;
     @include mobile {
       column-gap: rem(24);
+    }
+
+    @include mobile-s {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 
@@ -54,6 +65,12 @@
     @include mobile {
       column-gap: rem(12);
     }
+
+    @include mobile-s {
+      width: 100%;
+      // justify-content: space-between;
+      justify-content: start;
+    }
   }
 
   &__base-amount {
@@ -72,10 +89,15 @@
 
   &__title {
     color: #fff;
+
+    @include mobile-s {
+      font-size: rem(14);
+    }
   }
 
   &__actions {
     color: #fff;
+    white-space: nowrap;
 
     @include mobile {
       font-size: rem(14);
