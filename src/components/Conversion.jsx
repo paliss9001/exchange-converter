@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CurrencyPicker from "./CurrencyPicker";
 import exchangeIcon from "/assets/images/icon-exchange.svg";
-import { getCurrencyDropdownData } from "../helpers/functions";
+import { deepCheck, getCurrencyDropdownData } from "../helpers/functions";
 import { useExchange } from "../helpers/hooks";
 
 export default function Conversion({
@@ -13,15 +13,17 @@ export default function Conversion({
   setBase,
   setQuote,
   baseAmount,
-  setBaseAmount
+  setBaseAmount,
+  isFavorite,
+  setIsFavorite,
+  setLogs,
+  isLogged,
+  setIsLogged
 }) {
   const [currencyData, setCurrencyData] = useState(
     getCurrencyDropdownData(currencies),
   );
   const [bitRateAmount, isLoading] = useExchange(base, quote);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isLogged, setIsLogged] = useState(false);
-
   const exchangeAmount = bitRateAmount * baseAmount;
   const currentPair = `${base}-${quote}`;
 
@@ -34,7 +36,7 @@ export default function Conversion({
     const copy = [...JSON.parse(localStorage.getItem("favorites"))];
 
     if (!copy.includes(currentPair)) {
-      copy.push(currentPair);
+      copy.push(currentPair, exchangeAmount, bitRateAmount);
 
       localStorage.setItem("favorites", JSON.stringify(copy));
     }
@@ -43,27 +45,25 @@ export default function Conversion({
   }
 
   function handleLog() {
-    if (isLogged) return;
-
     const copy = [...JSON.parse(localStorage.getItem("logs"))];
-
-    const conversionData = {
-      baseAmount,
+    const target = {
+      baseAmount: +baseAmount,
       exchangeAmount,
-      currentPair,
       day,
       month,
+      base,
+      quote,
     };
 
-    copy.push(conversionData);
-
+    copy.push(target);
     localStorage.setItem("logs", JSON.stringify(copy));
+    setLogs(copy)
     setIsLogged(true);
   }
 
   useEffect(() => {
     setIsLogged(false);
-  }, [baseAmount, exchangeAmount]);
+  }, [baseAmount, base, quote]);
 
   const doesPairExist = JSON.parse(localStorage.getItem("favorites")).includes(
     currentPair,

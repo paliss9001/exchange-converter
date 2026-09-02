@@ -19,7 +19,6 @@ export default function History() {
 
   const currencyData = useContext(CurrencyDataContext);
   const setCurrencyData = useContext(SetCurrencyDataContext);
-
   const { base, quote } = currencyData;
 
   const URLs = [

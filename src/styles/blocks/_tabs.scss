@@ -18,5 +18,13 @@
 
   &__panel {
     color: #fff;
+    padding: 5;
+  }
+
+  &__extra {
+    @include square(rem(20));
+    border-radius: 50%;
+    background-color: var(--color-lime-800);
+    color: var(--color-lime-500);
   }
 }

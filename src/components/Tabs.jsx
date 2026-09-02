@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import History from "./History";
+import { structureArray } from "../helpers/functions";
 
 export default function Tabs({active, setActive, tabs}) {
   const tabRefs = useRef([]);

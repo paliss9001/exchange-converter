@@ -110,3 +110,46 @@ export function getRangeDate(range) {
       return getPrevFiveYears()
   }
 }
+
+export function handleFavorite() {
+    setIsFavorite(!isFavorite)
+    
+    const pair = `${base}-${value}`
+    const copy = [...JSON.parse(localStorage.getItem("favorites"))]
+    
+    if (copy.includes(pair)) {
+      copy.splice(copy.indexOf(pair), 3)
+    } else {
+      copy.push(pair, change, bitRate)
+    }
+
+    
+    localStorage.setItem("favorites", JSON.stringify(copy))
+}
+
+export function deepCheck(base, target) {
+  for (const key in base) {
+    // console.log(key)
+    
+
+    if (base[key] !== target[key]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export function structureArray(array) {
+  const result = [];
+  let buffer = [];
+  for (let i = 0; i < array.length; i++) {
+    buffer.push(array[i]);
+
+    if (buffer.length === 3 || i === array.length - 1) {
+      result.push(buffer);
+      buffer = [];
+    }
+  }
+  return result;
+}

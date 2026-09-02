@@ -4,13 +4,14 @@ import Loading from "./Loading";
 import { getCurrencyDropdownData } from "../helpers/functions";
 import favoriteIcon from "/assets/images/icon-star.svg";
 import favoriteIconFilled from "/assets/images/icon-star-filled.svg";
+import Default from "./Default";
 
 export default function Compare() {
   const [changes, setChanges] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const currenciesData = useContext(CurrencyDataContext);
 
-  const { base, currencies, baseAmount, quote } = currenciesData;
+  const { base, currencies, baseAmount, quote, } = currenciesData;
 
   const strCurrencies = currencies.map((currency) => {
     return currency["iso_code"];
@@ -33,17 +34,8 @@ export default function Compare() {
 
   if (isLoading) return <Loading />;
 
-  if (baseAmount === "") {
-    return (
-      <div className="default">
-        <span className="default__title">No comparison available</span>
-
-        <p>
-          Enter an amount in SEND above to see what your money is worth in other
-          currencies.
-        </p>
-      </div>
-    );
+  if (baseAmount === "" || baseAmount === 0) {
+    return <Default title={"No comparison available"}  text={"Enter an amount in SEND above to see what your money is worth in other currencies."}/>
   }
 
   for (let i = 0; i < changes.length; i++) {
@@ -69,23 +61,25 @@ export default function Compare() {
 }
 
 function Item({ data, base }) {
-  const [isFavorite, setIsFavorite] = useState(false)
-  const isInCollection = validateIsFavoritesIncollection(`${base}-${data.value}`)
+  const {value, change, bitRate} = data
+  const doesExist = JSON.parse(localStorage.getItem("favorites")).includes(`${base}-${value}`)
+
+  const {isFavorite, setIsFavorite} = useContext(CurrencyDataContext)
 
   function handleFavorite() {
-    const pair = `${base}-${data.value}`
-    const copy = [...JSON.parse(localStorage.getItem('favorites'))]
- 
-
-    if (!validateIsFavoritesIncollection(pair)) {
-      copy.push(pair)
-      localStorage.setItem("favorites", JSON.stringify(copy))
-      setIsFavorite(true)
+    setIsFavorite(!isFavorite)
+    
+    const pair = `${base}-${value}`
+    const copy = [...JSON.parse(localStorage.getItem("favorites"))]
+    
+    if (copy.includes(pair)) {
+      copy.splice(copy.indexOf(pair), 3)
     } else {
-      const updatedArray = copy.splice(copy.indexOf(pair), 1)
-      localStorage.setItem("favorites", JSON.stringify(updatedArray))
-      setIsFavorite(false)      
-    } 
+      copy.push(pair, change, bitRate)
+    }
+
+    
+    localStorage.setItem("favorites", JSON.stringify(copy))
   }
 
 
@@ -105,19 +99,15 @@ function Item({ data, base }) {
         </div>
         <button
           className={
-            isFavorite
+            doesExist
               ? "compare__favorite active"
               : "compare__favorite"
           }
           onClick={() => handleFavorite(data)}
         >
-          <img src={isFavorite ? favoriteIconFilled : favoriteIcon}></img>
+          <img src={doesExist ? favoriteIconFilled : favoriteIcon}></img>
         </button>
       </div>
     </li>
   );
-}
-
-function validateIsFavoritesIncollection(pair) {
-  return JSON.parse(localStorage.getItem("favorites")).includes(pair)
 }

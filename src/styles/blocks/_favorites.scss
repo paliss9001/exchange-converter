@@ -1,0 +1,59 @@
+@use '../helpers/' as *;
+
+.favorites {
+
+  &__header {
+    padding-bottom: rem(20);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__count {
+    @include text-preset-5;
+
+    color: var(--color-neutral-100);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(12);
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__currencies {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: #fff
+  }
+
+  &__arrow {
+    @include square(rem(12));
+  }
+
+  &__extra {
+    display: flex;
+    column-gap: rem(20);
+    align-items: center;
+  }
+
+  &__currency-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    row-gap: rem(6);
+  }
+
+  &__history {
+    color: var(--color-green-500);
+  }
+
+  &__title {
+    color: #fff;
+  }
+}
