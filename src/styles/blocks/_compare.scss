@@ -1,6 +1,7 @@
 @use '../helpers/' as *;
 
 .compare {
+  padding: .5rem;
 
   &__list {
     display: flex;

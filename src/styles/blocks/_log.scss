@@ -26,12 +26,16 @@
     display: flex;
     column-gap: rem(34);
     align-items: center;
+    @include mobile {
+      column-gap: rem(24);
+    }
   }
 
   &__currencies {
     display: flex;
     column-gap: rem(8);
     align-items: center;
+    color: #fff;
   }
 
   &__arrow {
@@ -46,6 +50,10 @@
     display: flex;
     column-gap: rem(20);
     align-items: center;
+
+    @include mobile {
+      column-gap: rem(12);
+    }
   }
 
   &__base-amount {
@@ -60,5 +68,17 @@
     display: flex;
     flex-direction: column;
     row-gap: rem(12);
+  }
+
+  &__title {
+    color: #fff;
+  }
+
+  &__actions {
+    color: #fff;
+
+    @include mobile {
+      font-size: rem(14);
+    }
   }
 }

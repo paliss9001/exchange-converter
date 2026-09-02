@@ -33,6 +33,11 @@ input::-webkit-inner-spin-button {
   border: 1px solid var(--color-neutral-600);
   padding: rem(20);
   border-radius: 16px;
+
+    @include mobile {
+        padding-inline: .4rem;
+
+  }
 }
 
 .content-card {
@@ -40,4 +45,9 @@ input::-webkit-inner-spin-button {
   border: 1px solid var(--color-neutral-500);
   padding: rem(12) rem(16);
   border-radius: 10px;
+
+    @include mobile {
+        padding-inline: .4rem;
+
+  }
 }
