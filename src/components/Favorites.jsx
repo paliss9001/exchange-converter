@@ -44,7 +44,7 @@ export default function Favorites() {
               </span>
               <div className="favorites__extra">
                 <div className="favorites__currency-wrapper">
-                  <span className="favorites__bitrate">{bitrate}</span>
+                  <span className="favorites__bitrate">{bitrate.toFixed(5)}</span>
                   <span className="favorites__history">{change.toFixed(3)}</span>
                 </div>
                 <button

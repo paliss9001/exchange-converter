@@ -84,7 +84,7 @@ function Item({base, baseAmount, day, month, exchangeAmount, quote, setLogs}) {
         </div>
         <div className="log__exchange">
           <span className="log__base-amount">{baseAmount}</span>
-          <span className="log__exchange-amount">{exchangeAmount}</span>
+          <span className="log__exchange-amount">{exchangeAmount.toFixed(3)}</span>
           <button
             onClick={() => handleDelete()}
             className="log__delete button"
