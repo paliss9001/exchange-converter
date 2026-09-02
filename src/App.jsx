@@ -36,7 +36,7 @@ const tabs = [
     content: <Log />,
   },
 ];
-const PROVIDER = "BCB";
+const PROVIDER = "CBU";
 const TICKER_PAIRS = [
   ["USD", "JPY"],
   ["GBP", "USD"],
