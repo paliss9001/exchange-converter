@@ -1,11 +1,15 @@
 @use '../helpers/' as *;
 
 .history {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
 
   &__cards-list {
     display: flex;
@@ -38,5 +42,12 @@
     @include text-preset-2;
 
     color: #fff;
+  }
+
+  &__chart {
+    background-color: var(--color-neutral-700);
+    flex-basis: 100%;
+    width: 100%;
+
   }
 }

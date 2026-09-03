@@ -24,7 +24,6 @@ input::-webkit-inner-spin-button {
 
 .title {
   @include text-preset-2;
-
   color: #fff;
 }
 
@@ -51,9 +50,4 @@ input::-webkit-inner-spin-button {
         padding: .4rem;
 
   }
-}
-
-canvas {
-  width: 100%;
-  flex-grow: 1;
 }

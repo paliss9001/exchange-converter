@@ -566,6 +566,7 @@ input::-webkit-inner-spin-button {
   overflow-x: scroll;
   scrollbar-width: none;
   overflow-y: hidden;
+  font-size: 2.125rem;
 }
 @media (width > 90.06125rem) {
   .conversion__value {
@@ -728,7 +729,7 @@ input::-webkit-inner-spin-button {
   color: var(--color-lime-500);
 }
 
-.history {
+.history__body {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -771,6 +772,11 @@ input::-webkit-inner-spin-button {
   line-height: 120%;
   letter-spacing: -0.03125rem;
   color: #fff;
+}
+.history__chart {
+  background-color: var(--color-neutral-700);
+  flex-basis: 100%;
+  width: 100%;
 }
 
 .range__list {

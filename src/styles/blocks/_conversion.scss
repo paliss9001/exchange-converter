@@ -42,6 +42,7 @@
     overflow-x: scroll;
     scrollbar-width: none;
     overflow-y: hidden;
+    font-size: rem(34);
 
     @include laptop-above {
       max-width: rem(470);
