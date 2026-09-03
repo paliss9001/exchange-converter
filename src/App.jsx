@@ -5,12 +5,22 @@ import Header from "./components/Header";
 import Loading from "./components/Loading";
 import Tabs from "./components/Tabs";
 import Ticker from "./components/Ticker";
-import { useCurrencies, useScreenWidth, useTicker } from "./helpers/hooks";
+import {
+  useChartData,
+  useCurrencies,
+  useScreenWidth,
+  useTicker,
+} from "./helpers/hooks";
 import {
   CurrencyDataContext,
   SetCurrencyDataContext,
 } from "./helpers/contexts";
-import { deepCheck, getPrevDay, getTodayRaw } from "./helpers/functions";
+import {
+  deepCheck,
+  getPrevDay,
+  getPrevMonth,
+  getTodayRaw,
+} from "./helpers/functions";
 import InfoPicker from "./components/InfoPicker";
 import History from "./components/History";
 import Compare from "./components/Compare";
@@ -66,7 +76,9 @@ export default function App() {
   const [baseAmount, setBaseAmount] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
   const favoritesCollection = localStorage.getItem("favorites");
-  const [logs, setLogs] = useState([...JSON.parse(localStorage.getItem("logs"))])
+  const [logs, setLogs] = useState([
+    ...JSON.parse(localStorage.getItem("logs")),
+  ]);
   const [isLogged, setIsLogged] = useState(false);
 
   if (error !== null) return <Error error={error} />;
@@ -113,7 +125,7 @@ export default function App() {
             favoritesCollection,
             logs,
             setLogs,
-            setIsLogged
+            setIsLogged,
           }}
         >
           <SetCurrencyDataContext value={{ setBase, setQuote }}>

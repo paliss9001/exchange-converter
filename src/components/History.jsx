@@ -12,6 +12,13 @@ import {
   getRangeDate,
 } from "../helpers/functions";
 
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js/auto";
+import { useChartData } from "../helpers/hooks";
+import LineChart from "./LineChart";
+
+Chart.register(CategoryScale);
+
 export default function History() {
   const [changes, setChanges] = useState(null);
   const [activeRange, setActiveRange] = useState("1D");
@@ -20,6 +27,8 @@ export default function History() {
   const currencyData = useContext(CurrencyDataContext);
   const setCurrencyData = useContext(SetCurrencyDataContext);
   const { base, quote } = currencyData;
+  const [chartData, isChartLoading] = useChartData(getRangeDate(activeRange), base, quote);
+
 
   const URLs = [
     `https://api.frankfurter.dev/v2/rates?base=${base}&quotes=${quote}`,
@@ -40,6 +49,7 @@ export default function History() {
   }, [activeRange, base, quote]);
 
   if (isLoading) return;
+
 
   const [open, last] = [changes[0][0]["rate"], changes[1][0]["rate"]];
   const change = last - open;
@@ -63,6 +73,7 @@ export default function History() {
 
   return (
     <section className="history">
+      <div className="history__body">
       <ul className="history__cards-list">
         {historyData.map((data, i) => {
           const { label, value, modifier } = data;
@@ -74,6 +85,10 @@ export default function History() {
       </ul>
 
       <Range activeRange={activeRange} setActiveRange={setActiveRange} />
+      <div className="history__chart content-bg" style={{ width: "width: 100%", flexGrow: 1, marginBottom: "2rem" }}>
+        {isChartLoading ? <div>chart is loading</div> : <LineChart chartData={chartData} base={base} quote={quote} />}
+      </div>
+      </div>
     </section>
   );
 }
@@ -91,7 +106,7 @@ function Range({ activeRange, setActiveRange }) {
   const ranges = ["1D", "1W", "1M", "3M", "1Y", "5Y"];
 
   function handleRange(e) {
-    setActiveRange(e.target.dataset['range'])
+    setActiveRange(e.target.dataset["range"]);
   }
 
   return (

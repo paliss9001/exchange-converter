@@ -1,5 +1,5 @@
 export function calculateDailyChange(currentPrice, previousPrice) {
-  return ((currentPrice - previousPrice) / previousPrice) * 1000;
+  return ((currentPrice - previousPrice) / previousPrice) * 100;
 }
 
 export function getPreviousDay(currentDate) {

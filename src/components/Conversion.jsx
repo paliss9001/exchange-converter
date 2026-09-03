@@ -138,7 +138,7 @@ function ConversionCard({
   const [searchTerm, setSearchTerm] = useState("");
 
   function hanldeChange(e) {
-    setBaseAmount(e.target.value);
+    setBaseAmount(e.target.value)
   }
 
   const copy = [...options];
@@ -151,6 +151,13 @@ function ConversionCard({
     return false;
   });
 
+  const foramttedCurrency = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: "USD"
+  })
+
+  const targetCurr = foramttedCurrency.format(baseAmount).split("$")[1]
+
   const actionElement =
     action === "SEND" ? (
       <input
@@ -158,11 +165,11 @@ function ConversionCard({
         onInput={hanldeChange}
         className="conversion__value input"
         placeholder="0"
-        value={baseAmount > 0 ? baseAmount : ""}
+        value={+baseAmount > 0 ? baseAmount : ""}
       ></input>
     ) : (
       <span className="conversion__value accent">
-        {exchangeAmount.toFixed(3)}
+        {exchangeAmount}
       </span>
     );
 
