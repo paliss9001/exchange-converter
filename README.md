@@ -55,10 +55,6 @@ Users are able to:
 - REST API
 - Frankfurt API
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
 ### Continued development
 
 Based on the feedback I have recevied so far, I want to implement a formatter, so users can comfortable see how much money they are planning to convert and how much they get.
